@@ -19,7 +19,7 @@ pipeline{
         stage("Build Image"){
             steps{
                 script{
-                    bat 'docker build -t bmchheda1/spring-cicd:1.0 .'
+                    bat 'docker build -t bmchheda1/spring-cicd:2.0 .'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline{
             steps{
                 withCredentials([string(credentialsId: 'dptwo', variable: 'dptwo')]) {
                     bat 'docker login -u bmchheda1 -p ${dptwo}'
-                    bat 'docker push bmchheda1/spring-cicd:1.0'
+                    bat 'docker push bmchheda1/spring-cicd:2.0'
                 }
             }
         }
