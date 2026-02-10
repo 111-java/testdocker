@@ -23,7 +23,7 @@ pipeline{
                 }
             }
         }
-        stage("Deploy Images to Hub"){
+        stage("Deploy Imagess to Hub"){
             steps{
                 withCredentials([string(credentialsId: 'dptwo', variable: 'dptwo')]) {
                     bat 'docker login -u bmchheda1 -p ${dptwo}'
