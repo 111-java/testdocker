@@ -19,16 +19,16 @@ pipeline{
         stage("Build Image"){
             steps{
                 script{
-                    bat 'docker build -t bmchheda1/spring-cicd:3.0 .'
+                    bat 'docker build -t bmchheda1/spring-cicd:4.0 .'
                 }
             }
         }
         stage("Deploy Imagess to Hub"){
             steps{
-                withCredentials([string(credentialsId: 'dpfive', variable: 'dpfive')]) {
+                withCredentials([string(credentialsId: 'dpsix', variable: 'dpsix')]) {
                     // some block
-                    bat 'docker login -u bmchheda1 -p "${dpfive}"'
-                    bat 'docker push bmchheda1/spring-cicd:3.0'
+                    bat 'docker login -u bmchheda1 -p "${dpsix}"'
+                    bat 'docker push bmchheda1/spring-cicd:4.0'
                 }
             }
         }
