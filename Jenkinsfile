@@ -16,13 +16,7 @@ pipeline{
                 }
             }
         }
-        stage("Build Image"){
-            steps{
-                script{
-                    bat 'docker build -t bmchheda1/spring-cicd:6.0 .'
-                }
-            }
-        }
+
 
 
     }
