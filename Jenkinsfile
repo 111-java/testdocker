@@ -25,10 +25,9 @@ pipeline{
         }
         stage("Deploy Imagess to Hub"){
             steps{
-                withCredentials([string(credentialsId: 'dptwo', variable: 'dptwo')]) {
-                   // bat 'echo "${dptwo}" | docker login --username bmchheda1 --password-stdin'
-                   // bat 'docker login -u bmchheda1 -p "${dptwo}"'
-                    bat 'docker login -u bmchheda1 -p dckr_pat_AJKI86F-nZXnzAi-vjQhNjy2CUQ'
+                withCredentials([string(credentialsId: 'dpfive', variable: 'dpfive')]) {
+                    // some block
+                    bat 'docker login -u bmchheda1 -p "${dpfive}"'
                     bat 'docker push bmchheda1/spring-cicd:3.0'
                 }
             }
