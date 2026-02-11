@@ -12,10 +12,17 @@ pipeline{
         stage("Build Process"){
             steps{
                 script{
-                    bat 'mvn clean install'
+                    sh 'mvn clean install'
                 }
             }
         }
+        stage("Build Image"){
+                    steps{
+                        script{
+                            sh 'docker build -t bmchheda1/spring-cicd:7.0 .'
+                        }
+                    }
+                }
 
 
 
